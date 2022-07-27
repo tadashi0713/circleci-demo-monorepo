@@ -1,0 +1,15 @@
+version: 2.1
+
+parameters:
+  test-backend:
+    type: boolean
+    default: false
+
+workflows:
+  main:
+    when: << pipeline.parameters.test-backend >>
+    jobs:
+      - python/test:
+          pkg-manager: pipenv
+          test-tool: pytest
+          version: '3.9'
