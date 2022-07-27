@@ -22,7 +22,7 @@ workflows:
           test-tool: pytest
           version: '3.9'
   frontend:
-        when: << pipeline.parameters.test-frontend >>
+    when: << pipeline.parameters.test-frontend >>
     jobs:
       - node/test:
           app-dir: frontend
