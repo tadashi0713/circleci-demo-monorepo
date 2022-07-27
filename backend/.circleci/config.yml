@@ -5,6 +5,9 @@ parameters:
     type: boolean
     default: false
 
+orbs:
+  python: circleci/python@1.4.0
+
 workflows:
   main:
     when: << pipeline.parameters.test-backend >>
