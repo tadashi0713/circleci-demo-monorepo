@@ -9,7 +9,7 @@ orbs:
   python: circleci/python@1.4.0
 
 workflows:
-  main:
+  backend:
     when: << pipeline.parameters.test-backend >>
     jobs:
       - python/test:

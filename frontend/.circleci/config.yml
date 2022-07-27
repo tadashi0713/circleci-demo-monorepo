@@ -1,0 +1,18 @@
+version: 2.1
+
+parameters:
+  test-frontend:
+    type: boolean
+    default: false
+
+orbs:
+  node: circleci/node@4.5.1
+
+workflows:
+  frontend:
+        when: << pipeline.parameters.test-frontend >>
+    jobs:
+      - node/test:
+          app-dir: frontend
+          pkg-manager: yarn
+          version: 14.17.0
