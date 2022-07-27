@@ -13,6 +13,7 @@ workflows:
     when: << pipeline.parameters.test-backend >>
     jobs:
       - python/test:
+          app-dir: backend
           pkg-manager: pipenv
           test-tool: pytest
           version: '3.9'
