@@ -6,10 +6,17 @@ orbs:
   path-filtering: circleci/path-filtering@0.1.3
 
 workflows:
-  generate-config:
+  generate-config-backend:
     jobs:
       - path-filtering/filter:
           base-revision: main
           config-path: backend/.circleci/config.yml
           mapping: |
             backend/.* test-backend true
+  generate-config-frontend:
+    jobs:
+      - path-filtering/filter:
+          base-revision: main
+          config-path: frontend/.circleci/config.yml
+          mapping: |
+            frontend/.* test-frontend true
