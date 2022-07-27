@@ -10,13 +10,7 @@ workflows:
     jobs:
       - path-filtering/filter:
           base-revision: main
-          config-path: backend/.circleci/config.yml
+          config-path: .circleci/continue-config.yml
           mapping: |
             backend/.* test-backend true
-  generate-config-frontend:
-    jobs:
-      - path-filtering/filter:
-          base-revision: main
-          config-path: frontend/.circleci/config.yml
-          mapping: |
             frontend/.* test-frontend true

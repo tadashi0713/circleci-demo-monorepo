@@ -4,9 +4,13 @@ parameters:
   test-backend:
     type: boolean
     default: false
+  test-frontend:
+    type: boolean
+    default: false
 
 orbs:
   python: circleci/python@1.4.0
+  node: circleci/node@4.5.1
 
 workflows:
   backend:
@@ -17,3 +21,10 @@ workflows:
           pkg-manager: pipenv
           test-tool: pytest
           version: '3.9'
+  frontend:
+        when: << pipeline.parameters.test-frontend >>
+    jobs:
+      - node/test:
+          app-dir: frontend
+          pkg-manager: yarn
+          version: 14.17.0
